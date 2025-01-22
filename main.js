@@ -35,9 +35,9 @@ const tbody = document.createElement('tbody');
 tbody.id="tbodyID";
 table.appendChild(tbody);
 
-// generateColgroup();
+generateColgroup();
 
-// createHeader(); 
+createHeader(); 
 
 // renderTable(array);
 
