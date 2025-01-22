@@ -39,7 +39,7 @@ generateColgroup();
 
 createHeader(); 
 
-// renderTable(array);
+renderTable(array);
 
 // generateForm();
 
