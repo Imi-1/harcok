@@ -107,3 +107,99 @@ function validateFormInputFieldsExtra(inputElement1, inputElement2){
 }
 
 
+
+
+
+function createLabel(labelText, htmlFor) {
+    const label = document.createElement('label'); 
+    label.textContent = labelText;
+    label.htmlFor = htmlFor;
+    return label;
+}
+function createInput(inputType, inputId, inputName) {
+    const input = document.createElement('input');
+    input.type = inputType;
+    input.id = inputId;
+    input.name = inputName;
+    return input;
+}
+function createErrorDiv() {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error';
+    return errorDiv;
+}
+
+
+function generateForm() {
+    const form = document.createElement('form');
+    form.id = 'form';
+    form.action = '#';
+
+    const fields = [
+        {
+            label: 'Harc megnevezése:',
+            id: 'harc_nev',
+            name: 'harc_nev',
+            type: 'text'
+        },
+        {
+            label: '1. Harcoló fél:',
+            id: 'harcolo1',
+            name: 'harcolo1',
+            type: 'text'
+        },
+        {
+            label: '1. Haderő:',
+            id: 'hadero1',
+            name: 'hadero1',
+            type: 'text'
+        },
+        {
+            label: '2. Harcoló fél:',
+            id: 'harcolo2',
+            name: 'harcolo2',
+            type: 'text'
+        },
+        {
+            label: '2. Haderő:',
+            id: 'hadero2',
+            name: 'hadero2',
+            type: 'text'
+        }
+    ];
+
+    for (const i of fields) {
+
+        //field div
+        const fieldDiv = document.createElement('div');
+        fieldDiv.className = 'field';
+
+        //lable
+        const label = createLabel(i.label, i.id);
+        fieldDiv.appendChild(label);
+
+        fieldDiv.appendChild(document.createElement('br'));
+
+        //input
+        const input = createInput(i.type, i.id, i.name);
+        fieldDiv.appendChild(input); 
+
+        fieldDiv.appendChild(document.createElement('br'));
+
+        //error div
+        const errorDiv = createErrorDiv();
+        fieldDiv.appendChild(errorDiv);
+
+        fieldDiv.appendChild(document.createElement('br'));
+
+        form.appendChild(fieldDiv);
+    }
+
+    //button
+    const button = document.createElement('button');
+    button.type = 'submit';
+    button.textContent = 'Hozzáadás'; 
+    form.appendChild(button);
+
+    document.body.appendChild(form);
+}

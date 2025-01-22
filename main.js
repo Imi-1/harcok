@@ -41,7 +41,7 @@ createHeader();
 
 renderTable(array);
 
-// generateForm();
+generateForm();
 
 
 
